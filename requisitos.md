@@ -27,7 +27,7 @@ RF08 – O sistema DEVE enviar um e-mail de confirmação ao empresário respons
 RF09 - O sistema DEVE permitir o usuário criar categorias e subcategoria de produto.
 RF10 - 
 
-### 2.1 *Requisitos Não Funcionais (RNF):*
+- *Requisitos Não Funcionais (RNF):*
 
 RNF01 - *Desenpenho:* O sistema deve responder ás consultas de estoque em até 3 segundo.
 
