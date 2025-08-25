@@ -24,6 +24,8 @@ RF07 – O sistema deve enviar um e-mail de confirmação ao estoquista após o 
 
 RF08 – O sistema deve enviar um e-mail de confirmação ao empresário responsável pela empresa após alterações no estoque.
 
+RF09 - O sistema deve permitir o usuário criar categorias e subcategoria de produto.
+
 ### *Requisitos Não Funcionais (RNF):*
 
 RNF01 - *Desenpenho:* O sistema deve responder ás consultas de estoque em até 3 segundo.
