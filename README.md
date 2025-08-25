@@ -23,3 +23,11 @@ RF06 – O sistema deve vincular cada usuário a uma empresa cadastrada.
 RF07 – O sistema deve enviar um e-mail de confirmação ao estoquista após o cadastro ou atualização de um item.
 
 RF08 – O sistema deve enviar um e-mail de confirmação ao empresário responsável pela empresa após alterações no estoque.
+
+### *Requisitos Não Funcionais (RNF):*
+
+RNF01 - *Desenpenho:* O sistema deve responder ás consultas de estoque em até 3 segundo.
+
+RNF02 - *Disponibilidade:* O sistema deve estar disponível 99% do tempo durante o horário comercial (08 às 18h).
+
+RNF03 - *Segurança:* Todas as senhas de usuários devem ser armazenadas de forma cirtografada (Em análise).
