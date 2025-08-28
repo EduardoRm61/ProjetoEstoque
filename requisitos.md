@@ -14,11 +14,11 @@ RF01 -  O sistema DEVE permitir o cadastro de informações pessoais do Estoquis
 
 RF02 - O sistema DEVE permitir o cadastro das informações da empresa, como razão social, nome fantasia, CNPJ, endereço e ramo de atividade.
 
-RF03 - O sistema DEVE permitir que o usuário cadastre itens/produtos, incluindo nome, descrição, quantidade, categoria e preço.
+RF03 - O sistema DEVE permitir que o Estoquista cadastre itens/produtos, incluindo nome, descrição, quantidade, categoria e preço.
   
 RF04 - O sistema DEVE permitir que o Estoquista e o Empresário busquem produtos no estoque por nome, categoria ou código.
 
-RF05 - O sistema DEVE vincular cada usuário a uma empresa cadastrada.
+RF05 - O sistema DEVE permitir que o Estoquista e o Empresário façam login com credencias (e-mail e senha).
 
 RF06 - O sistema DEVE armazenar todos os itens cadastrados em um banco de dados para futuras consultas.
 
@@ -28,7 +28,7 @@ RF06 - O sistema DEVE armazenar todos os itens cadastrados em um banco de dados 
 
  –
 
- – 
+ – RF05 - O sistema DEVE vincular cada usuário a uma empresa cadastrada.
 
  – O sistema deve permitir que o estoquista ou administrador realize a contagem, alteração, exclusão e atualização de itens no estoque.
 
