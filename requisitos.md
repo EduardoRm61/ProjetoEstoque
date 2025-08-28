@@ -7,7 +7,14 @@ SoftWare de busca e organização de produtos de um estoque.
 
 ### 2. Levantamento e Especificação de Requisitos
 - *Requisitos Funcionais (RF)*:
-  
+
+## Fase 1: O Núcles do MVP (Produto Mínimo Viável)
+
+
+
+
+
+
 RF01 – O sistema DEVE permitir que o usuário cadastre itens/produtos, incluindo nome, descrição, quantidade, categoria e preço.
 
 RF02 – O sistema DEVE permitir o cadastro de informações pessoais do Estoquista, como nome, CPF, e-mail e data de nascimento e empresa relacionado.
@@ -26,7 +33,15 @@ RF08 – O sistema DEVE enviar um e-mail de confirmação ao empresário respons
 
 RF09 - O sistema DEVE permitir o usuário criar categorias e subcategoria de produto.
 
-RF10 - 
+RF10 - O sistema DEVE permitir que o Estoquista e o Empresário façam login com credencias (e-mail e senha).
+
+RF11 - O sistema DEVE permitir que o Estoquista e o Empresário redefinam a senha
+
+RF12 - O sistema DEVE permitir que o Estoquista e o Empresário busquem produtos no estoque por nome, categoria ou código.
+
+RF13 - O sistema DEVE exibir a lista de todos os produtos do estoque de forma organizada (em uma tabela, por exemplo), com a possobilidade de ordenação.
+
+RF14
 
 - *Requisitos Não Funcionais (RNF):*
 
