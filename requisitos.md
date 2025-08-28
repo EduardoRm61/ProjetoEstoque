@@ -9,7 +9,7 @@ SoftWare de busca e organização de produtos de um estoque.
 
 ## Fase 2.1: O Núcles do MVP (Produto Mínimo Viável)
 - *Requisitos Funcionais (RF)*:
-- 
+  
 RF01 -  O sistema DEVE permitir o cadastro de informações pessoais do Estoquista, como nome, CPF, e-mail e data de nascimento e empresa relacionado.
 
 RF02 - O sistema DEVE permitir o cadastro das informações da empresa, como razão social, nome fantasia, CNPJ, endereço e ramo de atividade.
