@@ -10,7 +10,7 @@ SoftWare de busca e organização de produtos de um estoque.
   
 RF01 – O sistema DEVE permitir que o usuário cadastre itens/produtos, incluindo nome, descrição, quantidade, categoria e preço.
 
-RF02 – O sistema DEVE permitir o cadastro de informações pessoais do usuário, como nome, CPF, e-mail e data de nascimento.
+RF02 – O sistema DEVE permitir o cadastro de informações pessoais do Estoquista, como nome, CPF, e-mail e data de nascimento e empresa relacionado.
 
 RF03 – O sistema DEVE permitir o cadastro das informações da empresa, como razão social, nome fantasia, CNPJ, endereço e ramo de atividade.
 
@@ -30,8 +30,10 @@ RF10 -
 
 - *Requisitos Não Funcionais (RNF):*
 
-RNF01 - *Desenpenho:* O sistema deve responder ás consultas de estoque em até 3 segundo.
+RNF01 - *Desenpenho:* O sistema deve responder às consultas de estoque em até 3 segundo.
 
 RNF02 - *Disponibilidade:* O sistema deve estar disponível 99% do tempo durante o horário comercial (08 às 18h).
 
 RNF03 - *Segurança:* Todas as senhas de usuários devem ser armazenadas de forma cirtografada (Em análise).
+
+RN
