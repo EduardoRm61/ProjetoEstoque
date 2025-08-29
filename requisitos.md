@@ -25,7 +25,7 @@ RF03 - Gerenciamento de Produtos: O sistema __DEVE__ permitir ao Estoquista e ao
   
 RF04 - O sistema __DEVE__ armazenar de forma segura todas as informações de usuários, empresas e produtos em um banco de dados.
 
-###Fase 3: __Requisitos Não Funcionais (RNF)__:
+### Fase 3: __Requisitos Não Funcionais (RNF)__:
 
 RNF01 - __Desenpenho__: O sistema deve responder às requisições em até 3s.
 - Ao criar e alterar produtos
