@@ -1,4 +1,4 @@
-SoftWare de busca e organização de produtos de um estoque.
+# SoftWare de busca e organização de produtos de um estoque.
 
 # 1. Entendimento do Probema
 - *Definição da necessidade:* O Software tem como objetivo organizar e catalogar itens de um estoque ajudando a resolver problemas de organização, compras e catalogar itens do estoque.
