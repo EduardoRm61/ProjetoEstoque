@@ -17,7 +17,7 @@ RF02 - Cadastro de Usuário e Empresa:
 - O sistema __DEVE__ permitir o cadastro das informações da Empresa (razão social, CNPJ, endereço e nome fantasia ).
 - O sistema __DEVE__ vincular automaticamente o perfil do Estoquista à sua respectiva Empresa.
 
-RF03 - Gerenciamento de Produtos: O sistema DEVE permitir ao Estoquista e ao Empresário realizarem as seguintes operações com itens do estoque:
+RF03 - Gerenciamento de Produtos: O sistema __DEVE__ permitir ao Estoquista e ao Empresário realizarem as seguintes operações com itens do estoque:
 - __Cadastrar__: Incluir novos itens (nome, descrição, quantidade, categoria, preço, Und. de medida e código).
 - __Atualizar__:  Alterar informações de itens existentes.
 - __Excluir__: Remover itenss do estoque.
