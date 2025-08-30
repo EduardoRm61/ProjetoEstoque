@@ -26,7 +26,9 @@ RF03 - Gerenciamento de Produtos: O sistema __DEVE__ permitir ao Estoquista e ao
   
 RF04 - O sistema __DEVE__ armazenar de forma segura todas as informações de usuários, empresas e produtos em um banco de dados.
 
-EF05 - O sistema __DEVE__ permitir que o Empresário/Dono da Loja visualize a lista de cadastros pendentes de estoquistas e aprove ou rejeite cada um individualmente, concedento ou negando acesse ao sistema.
+RF05 - O sistema __DEVE__ permitir que o Empresário/Dono da Loja visualize a lista de cadastros pendentes de estoquistas e aprove ou rejeite cada um individualmente, concedento ou negando acesse ao sistema.
+
+RF06 - O sistema __DEVE__ permitir o usuário criar categorias e subcategoria de produto.
 
 ### Fase 3: __Requisitos Não Funcionais (RNF)__:
 
