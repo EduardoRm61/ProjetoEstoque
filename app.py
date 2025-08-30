@@ -9,6 +9,7 @@ empresa = {"empresa":[
     {"id_empresa":1}
 ]}
 
+
 app = Flask(__name__) # Criamos um objeto app que será responsável por
 # criar o aplicativo web
 
