@@ -15,7 +15,7 @@ RF01 - O sistema __DEVE__ permitir que o Estoquista e o Empresário façam login
 RF02 - Cadastro de Usuário e Empresa:
 - O sistema __DEVE__ permitir o cadastro de informações pessoais do Estoquista, incluindo __nome__, __CPF__, __e-mail__ e __data de nascimento__.
 - O sistema __DEVE__ permitir o cadastro das informações do Empresário, incluindo __nome__, __CPF__, __e-mail__ e __data de nascimento__.
-- O sistema __DEVE__ permitir o cadastro das informações da Empresa, incluindo __razão social, __nome fantasia__, __CNPJ__, __endereço__ e __ramo de atividade__. 
+- O sistema __DEVE__ permitir o cadastro das informações da Empresa, incluindo __razão social__, __nome fantasia__, __CNPJ__, __endereço__ e __ramo de atividade__. 
 - O sistema __DEVE__ vincular automaticamente o perfil do Estoquista à sua respectiva Empresa.
 
 RF03 - Gerenciamento de Produtos: O sistema __DEVE__ permitir ao Estoquista e ao Empresário realizarem as seguintes operações com itens do estoque:
