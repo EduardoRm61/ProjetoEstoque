@@ -22,3 +22,16 @@ app = Flask(__name__)
 app.config["HOST"] = "0.0.0.0" 
 app.config["PORT"] = 5002 
 app.config["DEBUG"] = True # 
+
+# 4 - Definindo as variáveis de ambiente
+# 'os.environ' é um objeto que age como um dicionário, contendo as variáveis de ambiente
+# que foram configuradas no seu computador ou servidor.
+# o método '.get("NOME_DA_VARIAVEL")' é usado para pegar o valor de
+# uma variável específica dentro desse dicionário.
+
+
+DB_USER = os.environ.get("DB_USER")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
+DB_HOST = os.environ.get("DB_HOST")
+DB_PORT = os.environ.get("DB_PORT")
+DB_NAME = os.environ.get("DB_NAME")
