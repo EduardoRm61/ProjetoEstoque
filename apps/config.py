@@ -24,6 +24,7 @@ app.config["PORT"] = 5002
 app.config["DEBUG"] = True # 
 
 # 4 - Definindo as variáveis de ambiente
+
 # 'os.environ' é um objeto que age como um dicionário, contendo as variáveis de ambiente
 # que foram configuradas no seu computador ou servidor.
 # o método '.get("NOME_DA_VARIAVEL")' é usado para pegar o valor de
@@ -35,3 +36,18 @@ DB_PASSWORD = os.environ.get("DB_PASSWORD")
 DB_HOST = os.environ.get("DB_HOST")
 DB_PORT = os.environ.get("DB_PORT")
 DB_NAME = os.environ.get("DB_NAME")
+
+# 5 - Configuração e Objeto conector
+
+# "SQLALCHEMY_DATABASE_URI" nome padrão para a extensão Flask-SQLALchemy
+# procura para encontrar o endereço do banco de dados. Atribuimos a essa chave
+# a string de conexão, algo como o endereço completo para o banco de dados.
+# Na segunda parte estamos criando a instância da classe SQLALchemy
+# e a passando o aplicativo Flask (app) como um argumento.
+# O objeto db_serv que você criou é o Object-Relational Mapper (ORM). Ele é a ferramenta que:
+# Lê a string de conexão que você configurou na primeira linha.
+# Gerencia a conexão com o banco de dados.
+# Permite que você use classes e objetos Python (os seus "models") para interagir com as tabelas do banco de dados, em vez de ter que escrever consultas SQL manualmente.
+
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+db_serv = SQLAlchemy(app)
