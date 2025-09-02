@@ -36,3 +36,8 @@ def listarEmpresa():
     empresas = Empresa.quary.all()
     return[empresas.to_dict() for empresa in empresas]
 
+def resetarEmpresa():
+    db_serv.session.delete()
+    db_serv.session.commit()
+    return
+
