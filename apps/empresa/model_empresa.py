@@ -41,3 +41,8 @@ def resetarEmpresa():
     db_serv.session.commit()
     return
 
+def deletarEmpresaPorId(id_empresa):
+    empresa = Empresa.query.get(id_empresa)
+    db_serv.session.delete(empresa)
+    db_serv.session.commit()
+
