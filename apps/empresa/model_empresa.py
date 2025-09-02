@@ -26,7 +26,13 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
             "cnpj":self.cnpj
     }
 
+#####     Classes de Exceção:  ######
 
+class EmpresaNaoEncontrada(Exception):
+    
+
+
+######    Funções auxiliares:  ######
 def criarEmpresa(nova_empresa):
     db_serv.session.add(nv_dict)
     db_serv.session.commit()
@@ -45,4 +51,9 @@ def deletarEmpresaPorId(id_empresa):
     empresa = Empresa.query.get(id_empresa)
     db_serv.session.delete(empresa)
     db_serv.session.commit()
+    return
 
+def alterarInfoEmpresa(razao_social, nome_fantasia, endereco, cnpj, id_empresa):
+    nv_dict = Empresa.query.get(id_empresa)
+    try:
+        if not nv_dict:
