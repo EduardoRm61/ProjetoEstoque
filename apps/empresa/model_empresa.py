@@ -25,4 +25,14 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
             "endereco": self.endereco,
             "cnpj":self.cnpj
     }
+
+
+def criarEmpresa(nova_empresa):
+    db_serv.session.add(nv_dict)
+    db_serv.session.commit()
+    return {"Descrição": "Empresa criada com êxito!"}
         
+def listarEmpresa():
+    empresas = Empresa.quary.all()
+    return[empresas.to_dict() for empresa in empresas]
+
