@@ -65,7 +65,9 @@ def deletarEmpresaPorId(id_empresa):
     db_serv.session.commit()
     return
 
-# def alterarInfoEmpresa(razao_social, nome_fantasia, endereco, cnpj, id_empresa):
-#     nv_dict = Empresa.query.get(id_empresa)
-#     try:
-#         if not nv_dict:
+def listarEmpresaPorId(id_empresa):
+    empresa = Empresa.query.get(id_empresa)
+    if empresa is None:
+        return ({"Descrição": EmpresaNaoEncontrada().msg}), 404
+    else:
+        return empresa.to_dict()
