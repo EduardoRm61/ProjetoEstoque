@@ -5,4 +5,4 @@ from flask_sqlalchemy import SQLAlchemy
 app.register_blueprint(bd_Empresa)
 
 if __name__ == '__main__':
-    app.run(host = 'localhost', port= 5002, debug= True)
+    app.run(host = app.config['HOST'], port= app.config['PORT'],debug=app.config['DEBUG'])
