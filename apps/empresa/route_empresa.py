@@ -14,3 +14,13 @@ def listar_empresas():
     except Exception as e:
         return {"Erro": str(e)}, 400
     
+
+@bd_Empresa.route("/empresa/<int:id_empresa>",methods=["GET"])
+def empresa_por_id(id_empresa):
+    try:
+        return modEmp.listarEmpresaPorId(id_empresa)
+    except Exception as e:
+        return jsonify ({
+            "Erro": "Não foi possível fazer a requisição",
+            "Descrição": str(e)
+        }), 500
