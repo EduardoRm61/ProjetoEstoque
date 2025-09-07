@@ -93,11 +93,3 @@ def listarEmpresaPorId(id_empresa):
         raise EmpresaNaoEncontrada()
     return empresa.to_dict()
 
-def criarEmpresa(dict_empresa):
-    """
-    Cria uma nova empresa através com base no dicionário recebido como
-    parâmetro da função, a mesma não retorna nada.
-    """
-    db_serv.session.add(dict_empresa)
-    db_serv.session.commit()
-    return
