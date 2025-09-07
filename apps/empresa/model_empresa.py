@@ -37,11 +37,20 @@ class EmpresaNaoEncontrada(Exception):
 
 ######    Funções auxiliares:  ######
 def criarEmpresa(nova_empresa):
+    """
+    Esta função tem como objetivo cadastrar uma nova empresa no 
+    Banco de dados, ela recebe um dicionário entregue através da rota,
+    assim adiciona ao banco.
+    """
     db_serv.session.add(nova_empresa)
     db_serv.session.commit()
     return {"Descrição": "Empresa criada com êxito!"},200
         
 def listarEmpresa():
+    """
+    Essa função faz uma requisição ao Banco de dados, retornando todas
+    as empresas cadastradas e assim as retorna.
+    """
     empresas = Empresa.quary.all()
     return[empresa.to_dict() for empresa in empresas]
 
