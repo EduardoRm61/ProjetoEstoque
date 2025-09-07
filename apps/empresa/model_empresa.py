@@ -40,34 +40,55 @@ def criarEmpresa(nova_empresa):
     """
     Esta função tem como objetivo cadastrar uma nova empresa no 
     Banco de dados, ela recebe um dicionário entregue através da rota,
-    assim adiciona ao banco.
+    assim adiciona ao banco. Retornando True ou Falso a depender do caso.
     """
-    db_serv.session.add(nova_empresa)
-    db_serv.session.commit()
-    return {"Descrição": "Empresa criada com êxito!"},200
+    try:
+        db_serv.session.add(nova_empresa)
+        db_serv.session.commit()
+        return True
+    except Exception as e:
+        print(f"Erro ao criar empresa: {e}")
+        return False
+    
         
 def listarEmpresa():
     """
-    Essa função faz uma requisição ao Banco de dados, retornando todas
-    as empresas cadastradas e assim as retorna.
+    Essa função faz uma requisição ao Banco de dados de todas as empresas
+    cadastradas armazenando em uma variável, assim através de um for ela
+    itera sobre todos os dados e os retorna. 
     """
     empresas = Empresa.quary.all()
     return[empresa.to_dict() for empresa in empresas]
 
+
 def resetarEmpresa():
+    """
+    Esta função tem como objetivo resetar todas as informações da tabela
+    Empresa no Banco de dados. Sem parâmetro. Não retorna nada.
+    """
     db_serv.session.delete()
     db_serv.session.commit()
     return
 
+
 def deletarEmpresaPorId(id_empresa):
+    """
+    Esta função deleta uma empresa pelo seu id, tem como parâmetro o id da
+    empresa, faz uma requisição ao Banco de Dados e remove a empresa com o id
+    correspondente, sem retornar nada.
+    """
     empresa = Empresa.query.get(id_empresa)
     db_serv.session.delete(empresa)
     db_serv.session.commit()
     return
 
+
 def listarEmpresaPorId(id_empresa):
+    """
+    Busca uma empresa no banco de dados por ID.
+    Retorna o objeto da empresa se encontrada, ou levanta uma exceção.
+    """
     empresa = Empresa.query.get(id_empresa)
     if empresa is None:
-        return ({"Descrição": EmpresaNaoEncontrada().msg}), 404
-    else:
-        return empresa.to_dict()
+        raise EmpresaNaoEncontrada()
+    return empresa.to_dict()
