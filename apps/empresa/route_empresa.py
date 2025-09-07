@@ -18,7 +18,7 @@ def listar_empresas():
 @bd_Empresa.route("/empresa/<int:id_empresa>",methods=["GET"])
 def empresa_por_id(id_empresa):
     try:
-        return modEmp.listarEmpresaPorId(id_empresa)
+        return modEmp.listarEmpresaPorId(id_empresa), 200
     except Exception as e:
         return jsonify ({
             "Erro": "Não foi possível fazer a requisição",
