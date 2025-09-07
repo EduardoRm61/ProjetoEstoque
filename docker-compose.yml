@@ -9,7 +9,7 @@ services:
       MYSQL_USER: adm
       MYSQL_PASSWORD: 12345
     volumes:
-      - mysql_data:var/lib/mysql
+      - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
     healthcheck:
@@ -18,19 +18,19 @@ services:
       timeout: 5s
       retries: 5
     
-api:
-  build: .
-  ports:
-    - 5002:5002
-  depends_on:
-    db:
-      condition: sevice_healthn
-  environment:
-    DB_HOST: db
-    DB_PORT: 3306
-    DB_NAME: Estoque
-    DB_USER: adm
-    DB_PASSWORD: 12345
+  api:
+    build: .
+    ports:
+      - 5002:5002
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: Estoque
+      DB_USER: adm
+      DB_PASSWORD: 12345
 
-valumes:
+volumes:
   mysql_data:
