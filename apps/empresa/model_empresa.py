@@ -29,6 +29,9 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
 #####     Classes de Exceção:  ######
 
 class EmpresaNaoEncontrada(Exception):
+    def __init__(self, msg="Erro, Empresa não encontrada"):
+        self.msg = msg
+        super().__init__(self.msg)
     
 
 
@@ -40,7 +43,7 @@ def criarEmpresa(nova_empresa):
         
 def listarEmpresa():
     empresas = Empresa.quary.all()
-    return[empresas.to_dict() for empresa in empresas]
+    return[empresa.to_dict() for empresa in empresas]
 
 def resetarEmpresa():
     db_serv.session.delete()
