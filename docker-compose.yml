@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    container_name: cont_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: Estoque
+      MYSQL_USER: adm
+      MYSQL_PASSWORD: 12345
+    volumes:
+      - mysql_data:var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u adm -pl12345"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    
+api:
+  build: .
+  ports:
+    - 5002:5002
+  depends_on:
+    db:
+      condition: sevice_healthn
+  environment:
+    DB_HOST: db
+    DB_PORT: 3306
+    DB_NAME: Estoque
+    DB_USER: adm
+    DB_PASSWORD: 12345
+
+valumes:
+  mysql_data:
