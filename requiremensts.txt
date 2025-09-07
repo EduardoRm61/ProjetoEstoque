@@ -2,3 +2,4 @@ Flask
 flask-restx
 Flask-SQLAlchemy
 PyMySQL
+cryptography
