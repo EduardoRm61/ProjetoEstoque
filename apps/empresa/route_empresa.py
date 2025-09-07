@@ -24,3 +24,4 @@ def empresa_por_id(id_empresa):
             "Erro": "Não foi possível fazer a requisição",
             "Descrição": str(e)
         }), 500
+    
