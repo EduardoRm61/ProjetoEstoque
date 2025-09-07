@@ -57,7 +57,7 @@ def listarEmpresa():
     cadastradas armazenando em uma variável, assim através de um for ela
     itera sobre todos os dados e os retorna. 
     """
-    empresas = Empresa.quary.all()
+    empresas = Empresa.query.all()
     return[empresa.to_dict() for empresa in empresas]
 
 
