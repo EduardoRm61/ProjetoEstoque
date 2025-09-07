@@ -37,9 +37,9 @@ class EmpresaNaoEncontrada(Exception):
 
 ######    Funções auxiliares:  ######
 def criarEmpresa(nova_empresa):
-    db_serv.session.add(nv_dict)
+    db_serv.session.add(nova_empresa)
     db_serv.session.commit()
-    return {"Descrição": "Empresa criada com êxito!"}
+    return {"Descrição": "Empresa criada com êxito!"},200
         
 def listarEmpresa():
     empresas = Empresa.quary.all()
@@ -56,7 +56,7 @@ def deletarEmpresaPorId(id_empresa):
     db_serv.session.commit()
     return
 
-def alterarInfoEmpresa(razao_social, nome_fantasia, endereco, cnpj, id_empresa):
-    nv_dict = Empresa.query.get(id_empresa)
-    try:
-        if not nv_dict:
+# def alterarInfoEmpresa(razao_social, nome_fantasia, endereco, cnpj, id_empresa):
+#     nv_dict = Empresa.query.get(id_empresa)
+#     try:
+#         if not nv_dict:
