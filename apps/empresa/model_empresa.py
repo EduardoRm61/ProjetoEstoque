@@ -43,8 +43,10 @@ class EmpresaSemRazaoSocial(Exception):
         self.msg = msg
         super().__init__(self.msg)
 
-
-    
+class EmpresaSemNomeFantasia(Exception):
+    def __init__(self, msg="Não é possível cadastrar uma"):
+        self.msg = msg
+        super().__init__(self.msg)
 
 
 ######    Funções auxiliares:  ######
