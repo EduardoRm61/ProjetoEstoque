@@ -52,6 +52,11 @@ class EmpresaSemEndereco(Exception):
         self.msg = msg
         super().__init__(self.msg)
 
+class EmpresaSemCNPJ(Exception):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem o 'CNPJ' "):
+        self.msg = msg
+        super().__init__(self.msg)
+
 
 ######    Funções auxiliares:  ######
 def criarEmpresa(nova_empresa):
