@@ -32,6 +32,13 @@ class EmpresaNaoEncontrada(Exception):
     def __init__(self, msg="Erro, Empresa não encontrada"):
         self.msg = msg
         super().__init__(self.msg)
+
+class EmpresaSemId(Exception):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem id!"):
+        self.msg = msg
+        super().__init__(self.msg)
+
+
     
 
 
