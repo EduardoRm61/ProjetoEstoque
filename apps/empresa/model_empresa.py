@@ -116,3 +116,9 @@ def listarEmpresaPorId(id_empresa):
         raise EmpresaNaoEncontrada()
     return empresa.to_dict()
 
+def procurarEmpresa(id_empresa):
+    empresa = Empresa.query.get(id_empresa)
+    if empresa is None:
+        return False
+    else:
+        return True
