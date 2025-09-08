@@ -10,8 +10,7 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
     endereco = db_serv.Column(db_serv.String(80), nullable=False)
     cnpj = db_serv.Column(db_serv.String(30), nullable=False)
 
-    def __init__(self, id, razao_social, nome_fantasia, endereco, cnpj):
-        self.id = id
+    def __init__(self, razao_social, nome_fantasia, endereco, cnpj):
         self.razao_social = razao_social
         self.nome_fantasia = nome_fantasia
         self.endereco = endereco
@@ -34,17 +33,22 @@ class EmpresaNaoEncontrada(Exception):
         super().__init__(self.msg)
 
 class EmpresaSemId(Exception):
-    def __init__(self, msg="Não é possível cadastrar uma empresa sem id!"):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem 'id!"):
         self.msg = msg
         super().__init__(self.msg)
 
 class EmpresaSemRazaoSocial(Exception):
-    def __init__(self, msg="Não é possível cadastrar uma empresa sem Razão Social"):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem a 'Razão Social' "):
         self.msg = msg
         super().__init__(self.msg)
 
 class EmpresaSemNomeFantasia(Exception):
-    def __init__(self, msg="Não é possível cadastrar uma"):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem o 'Nome Fantasia' "):
+        self.msg = msg
+        super().__init__(self.msg)
+
+class EmpresaSemEndereco(Exception):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem o 'Endereço' "):
         self.msg = msg
         super().__init__(self.msg)
 
