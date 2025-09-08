@@ -38,6 +38,11 @@ class EmpresaSemId(Exception):
         self.msg = msg
         super().__init__(self.msg)
 
+class EmpresaSemRazaoSocial(Exception):
+    def __init__(self, msg="Não é possível cadastrar uma empresa sem Razão Social"):
+        self.msg = msg
+        super().__init__(self.msg)
+
 
     
 
