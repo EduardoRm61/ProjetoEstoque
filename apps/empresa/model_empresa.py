@@ -117,6 +117,11 @@ def listarEmpresaPorId(id_empresa):
     return empresa.to_dict()
 
 def procurarEmpresa(id_empresa):
+    """
+    Procura uma empresa no banco de dados pelo seu id, verifica se
+    o id/empresa realmente existe, retornando True ou Falso a depender
+    da situação.
+    """
     empresa = Empresa.query.get(id_empresa)
     if empresa is None:
         return False
