@@ -122,3 +122,26 @@ def procurarEmpresa(id_empresa):
         return False
     else:
         return True
+    
+
+def alterarEmpresa(id_empresa, dados_atualizados):
+    """
+    Busca e atualiza os dados de uma empresca no banco de dados,
+    caso a mesma não seja encontrada, é levantada uma exceção
+    """
+    
+    empresa = Empresa.query.get(id_empresa)
+    if empresa is None:
+        raise EmpresaNaoEncontrada()
+        
+    empresa.razao_social = dados_atualizados.get('razao_social', empresa.razao_social)
+    empresa.nome_fantasia = dados_atualizados.get('nome_fantasia', empresa.nome_fantasia)
+    empresa.endereco = dados_atualizados.get('endereco', empresa.endereco)
+    empresa.cnpj = dados_atualizados.get('cnpj', empresa.cnpj)
+
+    db_serv.session.commit()
+    return empresa.to_dict()
+    
+
+        
+        
