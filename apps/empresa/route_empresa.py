@@ -30,8 +30,6 @@ def cria_empresa():
     try:
         dict_empresa = request.get_json()
 
-        if not dict_empresa or 'id' not in dict_empresa:
-            return jsonify ({"Erro": modEmp.EmpresaSemId().msg}),400
         if not dict_empresa or 'razao_social' not in dict_empresa:
             return jsonify ({"Erro": modEmp.EmpresaSemRazaoSocial().msg}),400
         if not dict_empresa or 'nome_fantasia' not in dict_empresa:
@@ -41,7 +39,15 @@ def cria_empresa():
         if not dict_empresa or 'cnpj' not in dict_empresa:
             return jsonify({"Erro": modEmp.EmpresaSemCNPJ().msg}), 400
         
-        return modEmp.criarEmpresa(dict_empresa),200
+        nova_empresa = modEmp.Empresa(
+            razao_social=dict_empresa["razao_social"],
+            nome_fantasia=dict_empresa["nome_fantasia"],
+            endereco=dict_empresa["endereco"],
+            cnpj=dict_empresa["cnpj"]
+        )
+
+        modEmp.criarEmpresa(nova_empresa)
+        return jsonify({"Mensagem": "Empresa criada com sucesso!"}),201
     
     except Exception as e:
         return jsonify ({
