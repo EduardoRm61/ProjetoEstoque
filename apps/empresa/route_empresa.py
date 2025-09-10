@@ -56,3 +56,50 @@ def cria_empresa():
         }), 500
     
 
+    
+@bd_Empresa.route("/empresa/<int:id>",methods=["PUT"])
+def alterar_empresa(id_empresa):
+    try:
+        dict_empresa = request.get_json()
+
+        if not dict_empresa:
+            return jsonify ({
+                "Erro": "Não foi possível realizar a requisição",
+                "Descrição": "O corpo da requisição está vazio, preencha todos os campos"
+            }), 400
+        
+        if 'razao_social' not in dict_empresa:
+            return jsonify ({
+                "Erro": modEmp.EmpresaSemRazaoSocial().msg
+            }), 400
+        
+        if 'nome_fantasia' not in dict_empresa:
+            return jsonify ({
+                "Erro": modEmp.EmpresaSemNomeFantasia().msg
+            }), 400
+        
+        if 'endereco' not in dict_empresa:
+            return jsonify ({
+                "Erro": modEmp.EmpresaSemEndereco().msg
+            }), 400
+        
+        if 'cnpj' not in dict_empresa:
+            return jsonify ({
+                "Erro": modEmp.EmpresaSemCNPJ().msg
+            }), 400
+        
+        nv_dados = modEmp.Empresa(
+            razao_social=dict_empresa["razao_social"],
+            nome_fantasia=nv_dados["nome_fantasia"],
+            endereco=nv_dados["endereco"],
+            cnpj=nv_dados["cnpj"]
+        )
+
+        modEmp.alterarEmpresa(nv_dados)
+        return jsonify ({"Mensagem": "Dados da empresa alterado com sucesso"}), 200
+    
+    except Exception as e:
+        return jsonify({
+            "Erro": "Não foi possível processar a requisição",
+            "Detalhes": str(e)
+        }), 500
