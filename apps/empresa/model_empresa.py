@@ -57,6 +57,11 @@ class EmpresaSemCNPJ(Exception):
         self.msg = msg
         super().__init__(self.msg)
 
+class CampoSemDados(Exception):
+    def __init__(self, msg="O corpo da requisição está vazio! Preecha todos os campos"):
+        self.msg = msg
+        super().__init__(self.msg)
+
 
 ######    Funções auxiliares:  ######
 def criarEmpresa(nova_empresa):
