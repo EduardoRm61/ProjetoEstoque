@@ -58,7 +58,7 @@ def cria_empresa():
 
     
 @bd_Empresa.route("/empresa/<int:id>",methods=["PUT"])
-def alterar_empresa(id_empresa):
+def alterar_empresa(id):
     try:
         dict_empresa = request.get_json()
 
@@ -73,7 +73,7 @@ def alterar_empresa(id_empresa):
                 "Erro": modEmp.EmpresaSemRazaoSocial().msg
             }), 400
         
-        if 'nome_fantasia' not in dict_empresa:
+        if 'nome_fantasia' not in dict_empresa and "nome_fantasia" == "":
             return jsonify ({
                 "Erro": modEmp.EmpresaSemNomeFantasia().msg
             }), 400
@@ -88,14 +88,14 @@ def alterar_empresa(id_empresa):
                 "Erro": modEmp.EmpresaSemCNPJ().msg
             }), 400
         
-        nv_dados = modEmp.Empresa(
-            razao_social=dict_empresa["razao_social"],
-            nome_fantasia=nv_dados["nome_fantasia"],
-            endereco=nv_dados["endereco"],
-            cnpj=nv_dados["cnpj"]
-        )
+        # nv_dados = modEmp.Empresa(
+        #     razao_social=dict_empresa["razao_social"],
+        #     nome_fantasia=dict_empresa["nome_fantasia"],
+        #     endereco=dict_empresa["endereco"],
+        #     cnpj=dict_empresa["cnpj"]
+        # )
 
-        modEmp.alterarEmpresa(nv_dados)
+        modEmp.alterarEmpresa(id, dict_empresa)
         return jsonify ({"Mensagem": "Dados da empresa alterado com sucesso"}), 200
     
     except Exception as e:
