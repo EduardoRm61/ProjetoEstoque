@@ -103,3 +103,14 @@ def alterar_empresa(id):
             "Erro": "Não foi possível processar a requisição",
             "Detalhes": str(e)
         }), 500
+    
+
+@bd_Empresa.route("/empresa/<int:id>", methods=["DELETE"])
+def deletar_empresa(id):
+    try:
+        modEmp.deletarEmpresaPorId(id)
+        return jsonify ({"Mensagem":"Empresa deletada com sucesso!"}),200
+    except modEmp.EmpresaNaoEncontrada as Enc:
+        return jsonify ({"Requisição Inválida": str(Enc)}), 400
+    except Exception as e:
+        return jsonify ({"Requisição Inválida": str(e)}), 500
