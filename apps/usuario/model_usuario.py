@@ -32,4 +32,11 @@ class Estoquista(Usuario):
     id_empresa = db_serv.Column(db_serv.Integer,db_serv.ForeignKey('empresas.id'),nullable=False)
     empresa = db_serv.relationship("Empresa", back_populates="estoquistas")
 
-    
+class Empresario(Usuario):
+    __tablename__ = 'empresarios'
+    __mapper_args__ = {'polymorphic_identity': 'empresario'}
+
+    id = db_serv.Column(db_serv.Integer, ForeignKey('usuarios.id'),primary_key=True)
+
+    # Definindo o relacionamento com a Empresa
+    empresas = db_serv.relationship("Empresa", back_populates="dono")
