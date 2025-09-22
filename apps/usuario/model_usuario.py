@@ -21,3 +21,15 @@ class Usuario(db_serv.Model):
     status_cadastro = db_serv.Column(db_serv.Enum('Pendente','Aprovado','Rejeitado'), default='Pendente')
     data_cadastro = db_serv.Column(db_serv.DateTime,default=datetime.now(timezone.utc))
 
+# Definindo a Subclasse 1: Estoquista
+class Estoquista(Usuario):
+    __tablename__ = 'estoquistas'
+    __mapper_args__ = {'polymorphic_identity': 'estoquista'}
+
+    id = db_serv.Column(db_serv.Integer,ForeignKey('usuarios.id'),primary_key=True)
+
+    # Definindo o relacionamento com a Empresa
+    id_empresa = db_serv.Column(db_serv.Integer,db_serv.ForeignKey('empresas.id'),nullable=False)
+    empresa = db_serv.relationship("Empresa", back_populates="estoquistas")
+
+    
