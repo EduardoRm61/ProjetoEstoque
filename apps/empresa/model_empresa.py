@@ -10,6 +10,18 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
     endereco = db_serv.Column(db_serv.String(80), nullable=False)
     cnpj = db_serv.Column(db_serv.String(30), nullable=False)
 
+    estoquistas = db_serv.relationship(
+        'Estoquista',
+        back_populates='empresa',
+        lazy=True
+    )
+
+    dono = db_serv.relationship(
+        'Empresario',
+        back_populates='empresas',
+        uselist=False
+    )
+
     def __init__(self, razao_social, nome_fantasia, endereco, cnpj):
         self.razao_social = razao_social
         self.nome_fantasia = nome_fantasia
