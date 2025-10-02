@@ -1,4 +1,6 @@
 from config import db_serv
+from sqlalchemy.orm import relationship
+from apps.usuario.model_usuario import Estoquista, Empresario
 
 class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_serv
     __tablename__ = "empresas"
@@ -40,7 +42,9 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
             "razao_social": self.razao_social,
             "nome_fantasia": self.nome_fantasia,
             "endereco": self.endereco,
-            "cnpj":self.cnpj
+            "cnpj":self.cnpj,
+            "dono": self.dono.to_dict() if self.dono else None,
+            "entoquista": [e.to_dict() for e in self.estoquista]
     }
 
 #####     Classes de Exceção:  ######
