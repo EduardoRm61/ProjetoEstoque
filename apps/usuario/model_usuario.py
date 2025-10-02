@@ -2,6 +2,7 @@ from config import db_serv
 from datetime import datetime, timezone
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
+from werkzeug.security import check_password_hash, generate_password_hash
 
 # Definindo a Superclasse Usuário
 class Usuario(db_serv.Model):
@@ -37,6 +38,9 @@ class Usuario(db_serv.Model):
             "status_cadastro": self.status_cadastro.value,
             "data_cadastro": self.data_cadastro.isoformat()
         }
+    
+    def verificar_senha(self, senha):
+        return check_password_hash(self.senha_hash, senha)
 
 # Definindo a Subclasse 1: Estoquista
 class Estoquista(Usuario):
