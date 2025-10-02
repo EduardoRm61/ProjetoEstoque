@@ -49,6 +49,14 @@ class Estoquista(Usuario):
     id_empresa = db_serv.Column(db_serv.Integer,db_serv.ForeignKey('empresas.id'),nullable=False)
     empresa = db_serv.relationship("Empresa", back_populates="estoquistas")
 
+    def __init__(self, nome, email, cpf, senha_hash, id_empresa):
+        super().__init__(nome, email, cpf, senha_hash)
+        self.id_empresa = id_empresa
+
+    def to_dict(self):
+        data = super().to_dict()
+        data["id_empresa"] = self.id_empresa
+        return data
 
 class Empresario(Usuario):
     __tablename__ = 'empresarios'
