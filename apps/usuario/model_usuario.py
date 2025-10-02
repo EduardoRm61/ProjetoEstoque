@@ -67,3 +67,9 @@ class Empresario(Usuario):
     # Definindo o relacionamento com a Empresa
     empresas = db_serv.relationship("Empresa", back_populates="dono")
 
+    def __init__(self, nome, email, cpf, senha_hash):
+        super().__init__(nome, email, cpf, senha_hash)
+
+    def to_dict(self):
+        # chama o to_dict() da classe pai para obter os atributos básicos
+        return super().to_dict()
