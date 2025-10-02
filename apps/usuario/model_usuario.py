@@ -1,6 +1,7 @@
 from config import db_serv
 from datetime import datetime, timezone
 from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 # Definindo a Superclasse Usuário
 class Usuario(db_serv.Model):
@@ -21,6 +22,22 @@ class Usuario(db_serv.Model):
     status_cadastro = db_serv.Column(db_serv.Enum('Pendente','Aprovado','Rejeitado'), default='Pendente')
     data_cadastro = db_serv.Column(db_serv.DateTime,default=datetime.now(timezone.utc))
 
+    def __init__(self, nome, email, cpf, senha_hash):
+        self.nome = nome
+        self.email = email
+        self.cpf = cpf
+        self.senha_hash = senha_hash
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "nome": self.nome,
+            "email": self.email,
+            "cpf": self.cpf,
+            "status_cadastro": self.status_cadastro.value,
+            "data_cadastro": self.data_cadastro.isoformat()
+        }
+
 # Definindo a Subclasse 1: Estoquista
 class Estoquista(Usuario):
     __tablename__ = 'estoquistas'
@@ -32,6 +49,7 @@ class Estoquista(Usuario):
     id_empresa = db_serv.Column(db_serv.Integer,db_serv.ForeignKey('empresas.id'),nullable=False)
     empresa = db_serv.relationship("Empresa", back_populates="estoquistas")
 
+
 class Empresario(Usuario):
     __tablename__ = 'empresarios'
     __mapper_args__ = {'polymorphic_identity': 'empresario'}
@@ -40,3 +58,4 @@ class Empresario(Usuario):
 
     # Definindo o relacionamento com a Empresa
     empresas = db_serv.relationship("Empresa", back_populates="dono")
+
