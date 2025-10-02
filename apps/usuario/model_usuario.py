@@ -1,8 +1,9 @@
 from config import db_serv
 from datetime import datetime, timezone
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, exc
 from sqlalchemy.orm import relationship
 from werkzeug.security import check_password_hash, generate_password_hash
+import bcrypt
 
 # Definindo a Superclasse Usuário
 class Usuario(db_serv.Model):
@@ -39,8 +40,17 @@ class Usuario(db_serv.Model):
             "data_cadastro": self.data_cadastro.isoformat()
         }
     
-    def verificar_senha(self, senha):
-        return check_password_hash(self.senha_hash, senha)
+    @classmethod
+    def buscarEmail(cls, email):
+        """
+        Busca um usuário no banco de dados pelo seu e-mail.
+        Retorna o objeto Usuário se encontrado, ou None se não
+        """
+        try:
+            return cls.query.filter_by(email=email).first()
+        except exc.SQLAlchemyError as e:
+            print(f"Erro ao buscar usuário por email {e}")
+            return None
 
 # Definindo a Subclasse 1: Estoquista
 class Estoquista(Usuario):
@@ -77,3 +87,7 @@ class Empresario(Usuario):
     def to_dict(self):
         # chama o to_dict() da classe pai para obter os atributos básicos
         return super().to_dict()
+    
+
+
+
