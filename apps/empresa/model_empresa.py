@@ -10,7 +10,13 @@ class Empresa(db_serv.Model): # Estou criand a class empresa que herda de db_ser
     endereco = db_serv.Column(db_serv.String(80), nullable=False)
     cnpj = db_serv.Column(db_serv.String(30), nullable=False)
 
-    estoquistas = db_serv.relationship(
+    # Aqui estou implementando o conceito de que para cada empresa cadastrada
+    # haja um id de seu dono, algo como, "o dono desta empresa tem o ID 123"
+    # ForeignKey (Ligação física no banco de dados)
+    id_dono = db_serv.Column(db_serv.Integer, db_serv.ForeignKey('empresarios.id'), nullable=False)
+    
+    # relationship (ligação lógica no código Python)
+    estoquista = db_serv.relationship(
         'Estoquista',
         back_populates='empresa',
         lazy=True
